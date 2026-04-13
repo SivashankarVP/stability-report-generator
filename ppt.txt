@@ -1,0 +1,146 @@
+Slide 1: Title Slide
+-----------------------------------------------------------
+Title: Automated Stability Report Generator
+Subtitle: AI-Powered Platform for Pharmaceutical Stability Management
+Presenter: [Your Name/Team Name]
+Date: [Date]
+
+
+Slide 2: Problem Statement
+-----------------------------------------------------------
+Heading: The Challenge in Pharma Data Management
+Bullet Points:
+- Generating compliance-ready stability reports is manual, tedious, and error-prone.
+- Managing testing data effectively across hundreds of batches demands robust tracking.
+- Extracting insights directly from raw tabular lab testing data is difficult.
+- Regulatory requirements (like eCTD formatting) demand strict adherence to formatting and completeness.
+
+
+Slide 3: Our Solution
+-----------------------------------------------------------
+Heading: Introducing the System
+Bullet Points:
+- A holistic, web-based platform specifically designed to digitize stability testing and batch management.
+- Integrates LLM (Large Language Model) technology to dynamically draft formal documentation.
+- Visualizes health data (expirations, test metrics) interactively to predict outcomes faster.
+- Provides a secure, user-friendly portal for quality assurance personnel to drive decision-making.
+
+
+Slide 4: Key Features & Core Modules
+-----------------------------------------------------------
+Heading: Platform Capabilities
+Bullet Points:
+- Dashboard: High-level overview of system alerts, active tests, and system health.
+- Medicine & Batch Management: Comprehensive UI handling states: 'Safe', 'Warning', 'Critical', and 'Expired'.
+- Analytics Module: Dynamic graphical representation of stability and inventory metrics via Recharts.
+- AI Report Generator: One-click creation of regulatory eCTD Module 3 compliant stability reports utilizing OpenAI.
+- AI Chat Assistant: Conversational agent trained/prepared to answer operational queries.
+
+
+Slide 5: Technology Stack
+-----------------------------------------------------------
+Heading: Robust & Modern Architecture
+Frontend:
+- React 18 & TypeScript: Fast, scalable UI construction.
+- Tailwind CSS: Responsive structural design.
+- Vite: Lightning fast bundling and deployment.
+Backend:
+- Node.js & Express: Secure API routing.
+- Prisma ORM: Simplified, dependable database management.
+- LangChain / OpenAI: AI processing and Natural Language Generation.
+Export Utilities:
+- jsPDF & docx: Client-side rendering for exportable artifacts.
+
+
+Slide 6: System Workflow
+-----------------------------------------------------------
+Heading: From Raw Data to Compliance
+Steps:
+1. Data Input: System securely stores batch and stability test records.
+2. Monitoring: Visual analytics track trends across time intervals (e.g., 3M, 6M, 12M).
+3. AI Generation: Contextual data is synthesized and passed to the AI Engine.
+4. Review & Export: AI compiles a structured report; users review and export to PDF/Word.
+
+Slide 7: System Architecture Diagram
+-----------------------------------------------------------
+Heading: High-Level Client-Server Architecture
+Diagram representation:
+[ Frontend (React/Vite) ] <--> (REST APIs / JSON) <--> [ Backend (Express/Node.js) ]
+                                                            |
+                                                            v
+[ External API Services ] <---> (LangChain / OpenAI) <--> [ Prisma ORM ]
+   (OpenAI LLMs)                                            |
+                                                            v
+                                                  [ PostgreSQL/SQLite DB ]
+
+
+Slide 8: System Design
+-----------------------------------------------------------
+Heading: Component-Based Design
+Bullet Points:
+- Modular Frontend: Encapsulated React components (Dashboard, Analytics, MedicineManagement) ensuring reusability.
+- Service-Oriented Backend: Separation of concerns with dedicated routes (ai.ts, auth.ts, tests.ts).
+- RAG Pipeline: Vector processing and embeddings managed efficiently via LangChain for report generation.
+- State Management: React hooks and contexts seamlessly handle authentication and real-time UI state.
+
+
+Slide 9: Workflow Diagram
+-----------------------------------------------------------
+Heading: Application Data Flow
+Workflow Flowchart:
+User Login --> Dashboard (System Overview)
+     |
+     +--> Add/Manage Medicines --> Update Inventory DB
+     |
+     +--> Log Stability Tests --> Store results per time interval (3M, 6M)
+     |
+     +--> Generate AI Report --> Fetch historical data --> OpenAI API --> Return Structured Document --> Export (PDF/Docx)
+
+
+Slide 10: Use Case Diagram
+-----------------------------------------------------------
+Heading: System Interactions by Actor
+Primary Actor: QA Manager / Pharmacist
+Use Cases:
+- Manage Medicine Inventory (CRUD operations).
+- Monitor Expiry Status ('Critical', 'Warning', 'Safe').
+- Execute Stability Tests (Input specific metrics like Assay %, Impurities).
+- Query AI Assistant (Ask SOPs or regulatory questions).
+- Perform Report Export (Generate compliance-ready documents).
+
+
+Slide 11: Test Cases
+-----------------------------------------------------------
+Heading: Quality Assurance Metrics
+Key Scenarios Tested:
+- TC01: Verify user authentication securely encrypts passwords and grants valid JWT.
+- TC02: Validate form inputs for new medicines (ensuring no duplicate batch IDs).
+- TC03: Confirm Expiry Status correctly updates based on current date vs. expiry date.
+- TC04: Ensure Analytics Module properly renders charts without data overlap.
+- TC05: Validate AI Report successfully retrieves historical data and formats output to eCTD guidelines.
+
+
+Slide 12: The "Antigravity" UI Experience (Optional)
+-----------------------------------------------------------
+Heading: Interactive Design & Polish
+Bullet Points:
+- Integrated Physics Engine functionality using Matter.js.
+- Elements react smoothly to user interactions, creating a playful, modern aesthetic.
+- Animations scale effectively across different components while keeping primary forms intact.
+
+
+Slide 13: Future Enhancements & Scalability
+-----------------------------------------------------------
+Heading: Looking Ahead
+Bullet Points:
+- Integration with external Lab Information Management Systems (LIMS).
+- Expansion of the RAG system to include vast libraries of standard operating procedures (SOPs).
+- Advanced predictive analytics modeling using standard machine learning frameworks.
+
+
+Slide 14: Thank You / Q&A
+-----------------------------------------------------------
+Heading: Conclusion
+Bullet Points:
+- Thank you for your time and attention.
+- We welcome any questions regarding the architecture, AI integration, or use cases.

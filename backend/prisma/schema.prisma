@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("Researcher")
+  createdAt    DateTime @default(now())
+}
+
+model Medicine {
+  id               Int      @id @default(autoincrement())
+  name             String
+  genericName      String
+  manufacturer     String
+  dosageForm       String
+  storageCondition String
+  initialPotency   Float
+  createdAt        DateTime @default(now())
+  batches          Batch[]
+}
+
+model Batch {
+  id              Int      @id
+  medicineId      Int
+  medicine        Medicine @relation(fields: [medicineId], references: [id])
+  manufactureDate DateTime
+  expiryDate      DateTime
+  createdAt       DateTime @default(now())
+  stabilityTests  StabilityTest[]
+  reports         Report[]
+}
+
+model StabilityTest {
+  id               Int      @id @default(autoincrement())
+  batchId          Int
+  batch            Batch    @relation(fields: [batchId], references: [id])
+  interval         Int
+  storageCondition String
+  testDate         DateTime @default(now())
+  results          TestResult?
+}
+
+model TestResult {
+  id               Int           @id @default(autoincrement())
+  stabilityTestId  Int           @unique
+  stabilityTest    StabilityTest @relation(fields: [stabilityTestId], references: [id])
+  assayPotency     Float
+  dissolution      Float
+  pHLevel          Float
+  moistureContent  Float
+  impurityLevel    Float
+  microbialLimit   Float
+  passFail         Boolean
+}
+
+model Report {
+  id            Int      @id @default(autoincrement())
+  batchId       Int
+  batch         Batch    @relation(fields: [batchId], references: [id])
+  reportType    String
+  generatedDate DateTime @default(now())
+  fileUrl       String
+}

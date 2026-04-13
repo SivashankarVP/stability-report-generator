@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: linear-gradient(to bottom, #b8d9f0 0%, #daeef9 30%, #ffffff 100%);
+    background-attachment: fixed;
+    @apply text-slate-900;
+  }
+}
